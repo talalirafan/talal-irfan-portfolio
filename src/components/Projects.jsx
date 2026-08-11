@@ -186,15 +186,24 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-actions">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn project-link-btn"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {project.liveUrl.includes('github.com') ? 'View Source' : 'Launch Site'}
+                </a>
                 <button
                   type="button"
-                  className="btn project-btn"
+                  className="btn project-details-btn"
                   onClick={(e) => {
                     e.stopPropagation();
                     setActiveProject(project);
                   }}
                 >
-                  View Details & QA Report
+                  QA & Details
                 </button>
               </div>
             </article>

@@ -98,32 +98,47 @@
 
 .project-actions {
   padding: 0 2rem 2rem;
+  display: flex;
+  gap: 0.8rem;
 }
 
 .btn {
-  padding: 12px 24px;
+  padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 550;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  text-align: center;
 }
 
-.project-btn {
+.project-link-btn {
+  flex: 1;
   background: var(--gradient);
   color: white;
-  width: 100%;
-  text-align: center;
   box-shadow: var(--shadow-accent);
 }
 
-.project-btn:hover {
+.project-link-btn:hover {
   background: var(--gradient-hover);
   transform: translateY(-3px);
-  box-shadow: 0 16px 30px rgba(var(--accent-rgb), 0.36);
+  box-shadow: 0 12px 24px rgba(var(--accent-rgb), 0.36);
+}
+
+.project-details-btn {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-h);
+  border: 1px solid var(--border);
+}
+
+.project-details-btn:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  background: rgba(var(--accent-rgb), 0.05);
 }
 
 @media (max-width: 768px) {
