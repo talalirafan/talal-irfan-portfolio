@@ -1,0 +1,289 @@
+.bughunter {
+  padding: 100px 0;
+  background: transparent;
+}
+
+.bughunter-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bughunter-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Editor Panel styling */
+.editor-panel {
+  background: #1e1e2e; /* VS Code style dark theme */
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  background: #181824;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editor-tab {
+  color: var(--text-h);
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: monospace;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.editor-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+}
+
+.editor-lang {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+.editor-body {
+  padding: 1.25rem 0.5rem;
+  font-family: 'Fira Code', Consolas, Monaco, 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  max-height: 480px;
+  overflow-y: auto;
+}
+
+.editor-row {
+  display: flex;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.editor-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-left-color: rgba(255, 255, 255, 0.15);
+}
+
+.line-num {
+  width: 32px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: right;
+  margin-right: 1.25rem;
+  user-select: none;
+}
+
+.line-code {
+  color: #cdd6f4;
+  white-space: pre;
+  word-break: break-all;
+}
+
+.editor-row.comment .line-code {
+  color: #6c7086; /* VS Code comment color */
+  font-style: italic;
+}
+
+.editor-row.bug-line:hover {
+  background: rgba(239, 68, 68, 0.05);
+  border-left-color: rgba(239, 68, 68, 0.4);
+}
+
+.editor-row.bug-line.resolved {
+  background: rgba(16, 185, 129, 0.05);
+  border-left-color: #10b981;
+}
+
+.editor-row.bug-line.resolved .line-code {
+  color: #34d399; /* glowing green */
+  font-weight: 500;
+}
+
+/* Console Panel Right styling */
+.console-panel-right {
+  background: rgba(10, 15, 30, 0.72);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+  justify-content: space-between;
+}
+
+.console-panel-header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.console-panel-header-right span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.console-badge {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: var(--accent);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: bold;
+}
+
+.console-panel-body-right {
+  flex-grow: 1;
+  overflow-y: auto;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.82rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 280px;
+  margin-bottom: 1.5rem;
+  padding-right: 0.5rem;
+}
+
+.console-row-right {
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+.console-row-right.sys { color: rgba(255, 255, 255, 0.55); }
+.console-row-right.ok { color: #34d399; }
+.console-row-right.warn { color: #f59e0b; }
+.console-row-right.success { color: #8b5cf6; font-weight: bold; }
+.console-row-right.empty { height: 0.5rem; }
+
+.console-arrow-right {
+  color: var(--accent);
+  margin-right: 0.25rem;
+}
+
+.console-panel-body-right::-webkit-scrollbar {
+  width: 5px;
+}
+
+.console-panel-body-right::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+.console-footer-right {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-h);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  width: auto;
+}
+
+.reset-btn:hover {
+  border-color: var(--accent);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+/* Success Badge Card styling */
+.success-badge-card {
+  background: radial-gradient(circle at 10% 20%, rgba(var(--accent-rgb), 0.12) 0%, transparent 40%),
+              rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.badge-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.4));
+  animation: scale-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scale-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.badge-details h4 {
+  font-size: 1.05rem;
+  color: var(--text-h);
+  margin-bottom: 0.15rem;
+}
+
+.badge-details p {
+  font-size: 0.8rem;
+  color: var(--accent-secondary);
+  font-weight: 500;
+}
+
+.success-badge-card .reset-btn {
+  margin-left: auto;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 992px) {
+  .bughunter-grid {
+    grid-template-columns: 1fr;
+  }
+  .console-panel-right {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .editor-body {
+    font-size: 0.72rem;
+  }
+  .line-num {
+    margin-right: 0.75rem;
+    width: 24px;
+  }
+  .success-badge-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .success-badge-card .reset-btn {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
