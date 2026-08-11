@@ -27,6 +27,7 @@ const initialLines = [
 
 const BugHunter = () => {
   const [resolvedBugs, setResolvedBugs] = useState([]);
+  const [showHints, setShowHints] = useState(false);
   const [logs, setLogs] = useState([
     { text: "[SYSTEM] Bug Hunter sandbox initialized. Code loaded.", type: 'sys' },
     { text: "[SYSTEM] Objective: Locate and click the 3 buggy lines of code.", type: 'sys' },
@@ -73,6 +74,7 @@ const BugHunter = () => {
   const handleReset = () => {
     setResolvedBugs([]);
     setIsCompleted(false);
+    setShowHints(false);
     setLogs([
       { text: "[SYSTEM] Sandbox reset. Code reloaded.", type: 'sys' },
       { text: "[SYSTEM] Locate and click the 3 buggy lines of code.", type: 'sys' },
@@ -100,11 +102,12 @@ const BugHunter = () => {
                 const isBugResolved = lineObj.type === 'bug' && resolvedBugs.includes(lineObj.bugId);
                 const displayStyle = lineObj.type === 'comment' ? 'comment' : lineObj.type === 'bug' ? 'bug-line' : 'normal-line';
                 const resolvedClass = isBugResolved ? 'resolved' : '';
+                const squiggleClass = (showHints && lineObj.type === 'bug' && !isBugResolved) ? 'squiggle-hint' : '';
 
                 return (
                   <div
                     key={lineObj.line}
-                    className={`editor-row ${displayStyle} ${resolvedClass}`}
+                    className={`editor-row ${displayStyle} ${resolvedClass} ${squiggleClass}`}
                     onClick={() => handleLineClick(lineObj)}
                   >
                     <span className="line-num">{lineObj.line}</span>
@@ -132,6 +135,17 @@ const BugHunter = () => {
               <div ref={logEndRef} />
             </div>
 
+            {showHints && (
+              <div className="hints-box">
+                <span className="hints-title">💡 Bug Investigation Hints:</span>
+                <ul className="hints-list">
+                  <li><strong>Line 6:</strong> Accessing <code>.length</code> on null state.</li>
+                  <li><strong>Line 10:</strong> Variable assignment <code>=</code> instead of comparison <code>===</code>.</li>
+                  <li><strong>Line 18:</strong> Missing closing curly bracket <code>&#125;</code> in map expression.</li>
+                </ul>
+              </div>
+            )}
+
             {isCompleted ? (
               <div className="success-badge-card">
                 <div className="badge-icon">🎖️</div>
@@ -145,6 +159,13 @@ const BugHunter = () => {
               </div>
             ) : (
               <div className="console-footer-right">
+                <button
+                  type="button"
+                  className={`btn hint-btn ${showHints ? 'active' : ''}`}
+                  onClick={() => setShowHints(!showHints)}
+                >
+                  {showHints ? 'Hide Hints' : 'Need a Hint?'}
+                </button>
                 <button type="button" className="btn reset-btn" onClick={handleReset}>
                   Reset Sandbox
                 </button>

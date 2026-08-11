@@ -197,6 +197,7 @@
   border-top: 1px solid var(--border);
   padding-top: 1rem;
   display: flex;
+  gap: 0.8rem;
   justify-content: flex-end;
 }
 
@@ -212,6 +213,70 @@
 .reset-btn:hover {
   border-color: var(--accent);
   background: rgba(139, 92, 246, 0.05);
+}
+
+.hint-btn {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent);
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  width: auto;
+}
+
+.hint-btn:hover, .hint-btn.active {
+  background: var(--gradient);
+  color: white;
+  border-color: transparent;
+  box-shadow: var(--shadow-accent);
+}
+
+/* Squiggle Underline styling */
+.editor-row.squiggle-hint .line-code {
+  text-decoration: underline red wavy;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* Hints Box */
+.hints-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  animation: slideUp 0.3s ease;
+}
+
+.hints-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-h);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hints-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.hints-list li {
+  font-size: 0.76rem;
+  color: var(--text);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.hints-list li code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+  color: var(--accent-secondary);
 }
 
 /* Success Badge Card styling */
