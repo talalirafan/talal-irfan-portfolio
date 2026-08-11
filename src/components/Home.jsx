@@ -6,7 +6,6 @@ import Skills from './Skills';
 import Projects from './Projects';
 import Contact from './Contact';
 import Dashboard from './Dashboard';
-import BugHunter from './BugHunter';
 import './Home.css';
 
 const Home = () => {
@@ -81,7 +80,6 @@ const Home = () => {
 
       <div className="reveal-on-scroll"><About /></div>
       <div className="reveal-on-scroll"><Skills /></div>
-      <div className="reveal-on-scroll"><BugHunter /></div>
       <div className="reveal-on-scroll"><Projects /></div>
       <div className="reveal-on-scroll"><Contact /></div>
     </>
