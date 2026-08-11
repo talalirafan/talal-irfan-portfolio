@@ -58,10 +58,10 @@ const Home = () => {
             Hi, I'm <span className="highlight">Talal Irfan</span>
           </h1>
           <h2 className="home-subtitle">
-            QA Intern at Arius Automation | Full Stack Developer
+            Web Developer Intern at Arius Automation | Full Stack Developer
           </h2>
           <p className="home-description">
-            I am a QA Intern at Arius Automation and a Full Stack Developer. I design and build end-to-end web applications using React, Express, NestJS, and SQL, while performing software testing and quality assurance to ensure bug-free production systems.
+            I am a Web Developer Intern at Arius Automation and a Full Stack Developer. I design, build, and deploy end-to-end web applications using React, Express, NestJS, and SQL, focusing on high-quality code and robust software architectures.
           </p>
           <div className="home-buttons">
             <button className="btn primary" onClick={() => navigate('/projects')}>

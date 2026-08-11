@@ -17,10 +17,10 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p>
-              I am a passionate developer and QA Intern at <strong>Arius Automation</strong>, where I focus on quality assurance, software testing, and full stack development. I have been building robust, end-to-end web applications and learning web technologies for <strong>2 years</strong>.
+              I am a passionate developer and Web Developer Intern at <strong>Arius Automation</strong>, where I focus on full stack development, software testing, and building robust web architectures. I have been building robust, end-to-end web applications and learning web technologies for <strong>2 years</strong>.
             </p>
             <p>
-              My full-stack tech stack includes HTML/CSS, JavaScript, React for the frontend, and Node.js, Express, NestJS, and SQL for the backend. My internship has allowed me to combine my development skills with software testing methodologies to ensure high-quality, bug-free applications.
+              My full-stack tech stack includes HTML/CSS, JavaScript, React for the frontend, and Node.js, Express, NestJS, and SQL for the backend. My internship has allowed me to strengthen my development skills and combine them with software testing methodologies to ensure high-quality, bug-free applications.
             </p>
             <p>
               My goal is to become a professional software engineer who can build and verify scalable, 
@@ -50,9 +50,9 @@ const About = () => {
               <div className="timeline-dot"></div>
               <div className="timeline-date">2026 - Present</div>
               <div className="timeline-content">
-                <h4>QA Intern</h4>
+                <h4>Web Developer Intern</h4>
                 <h5>Arius Automation</h5>
-                <p>Focused on manual testing, backend/API verification, bug tracking, and participating in the software development lifecycle to deliver flawless user experiences.</p>
+                <p>Focused on full stack development, frontend interfaces, backend APIs, database integrations, and participating in the software lifecycle to deliver seamless web products.</p>
               </div>
             </div>
             <div className="timeline-item">
