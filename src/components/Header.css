@@ -1,4 +1,4 @@
-﻿.navbar {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -104,6 +104,24 @@
   background: var(--theme-toggle-bg);
   border-color: var(--accent);
   transform: translateY(-1px);
+}
+
+.drive-mode-nav-btn {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.15), rgba(157, 78, 221, 0.15)) !important;
+  border: 1px solid rgba(0, 243, 255, 0.5) !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 20px !important;
+  color: #00f3ff !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+  transition: all 0.3s ease !important;
+}
+
+.drive-mode-nav-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 243, 255, 0.3), rgba(157, 78, 221, 0.3)) !important;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+  transform: translateY(-2px) scale(1.03) !important;
 }
 
 .hamburger {

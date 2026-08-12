@@ -2,62 +2,61 @@ import React, { useState, useEffect } from 'react';
 import { SITE_TITLE_CORE } from '../brand.js';
 import './Skills.css';
 
+const SKILL_GROUPS = [
+  {
+    title: 'Frontend',
+    skills: [
+      { name: 'HTML5', level: 75 },
+      { name: 'CSS3', level: 75 },
+      { name: 'JavaScript', level: 75 },
+      { name: 'React', level: 60 }
+    ]
+  },
+  {
+    title: 'Backend',
+    skills: [
+      { name: 'Node.js', level: 50 },
+      { name: 'Express', level: 55 },
+      { name: 'NestJS', level: 45 },
+      { name: 'SQL / Databases', level: 60 }
+    ]
+  },
+  {
+    title: 'QA & Testing',
+    skills: [
+      { name: 'Manual Testing', level: 65 },
+      { name: 'Bug Tracking', level: 70 },
+      { name: 'API Testing (Postman)', level: 60 }
+    ]
+  },
+  {
+    title: 'Tools & Tech',
+    skills: [
+      { name: 'Git & GitHub', level: 65 },
+      { name: 'VS Code', level: 70 }
+    ]
+  }
+];
+
 const Skills = () => {
-  const [animatedLevels, setAnimatedLevels] = useState({});
-
-  const skillGroups = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'HTML5', level: 75 },
-        { name: 'CSS3', level: 75 },
-        { name: 'JavaScript', level: 75 },
-        { name: 'React', level: 60 }
-      ]
-    },
-    {
-      title: 'Backend',
-      skills: [
-        { name: 'Node.js', level: 50 },
-        { name: 'Express', level: 55 },
-        { name: 'NestJS', level: 45 },
-        { name: 'SQL / Databases', level: 60 }
-      ]
-    },
-    {
-      title: 'QA & Testing',
-      skills: [
-        { name: 'Manual Testing', level: 65 },
-        { name: 'Bug Tracking', level: 70 },
-        { name: 'API Testing (Postman)', level: 60 }
-      ]
-    },
-    {
-      title: 'Tools & Tech',
-      skills: [
-        { name: 'Git & GitHub', level: 65 },
-        { name: 'VS Code', level: 70 }
-      ]
-    }
-  ];
-
-  useEffect(() => {
-    document.title = `${SITE_TITLE_CORE} | Skills`;
-    
-    // Initialize animation levels to 0
+  const [animatedLevels, setAnimatedLevels] = useState(() => {
     const initialLevels = {};
-    skillGroups.forEach(group => {
-      group.skills.forEach(skill => {
+    SKILL_GROUPS.forEach((group) => {
+      group.skills.forEach((skill) => {
         initialLevels[skill.name] = 0;
       });
     });
-    setAnimatedLevels(initialLevels);
+    return initialLevels;
+  });
+
+  useEffect(() => {
+    document.title = `${SITE_TITLE_CORE} | Skills`;
 
     // Trigger animation to actual levels
     const timer = setTimeout(() => {
       const targetLevels = {};
-      skillGroups.forEach(group => {
-        group.skills.forEach(skill => {
+      SKILL_GROUPS.forEach((group) => {
+        group.skills.forEach((skill) => {
           targetLevels[skill.name] = skill.level;
         });
       });
@@ -76,7 +75,7 @@ const Skills = () => {
         </div>
 
         <div className="skills-grid">
-          {skillGroups.map((group) => (
+          {SKILL_GROUPS.map((group) => (
             <article key={group.title} className="skill-card">
               <h3 className="skill-title">{group.title}</h3>
               <div className="skills-list">

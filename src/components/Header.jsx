@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '../context/useTheme.js';
 import './Header.css';
@@ -44,6 +44,20 @@ const Header = () => {
           <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')} onClick={closeMenu}>
             Contact
           </NavLink>
+          <a
+            href="#3d-drive"
+            className="drive-mode-nav-btn"
+            onClick={(e) => {
+              e.preventDefault();
+              closeMenu();
+              const el = document.getElementById('3d-drive');
+              if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+          >
+            🏎️ Drive Mode
+          </a>
           <button
             type="button"
             className="theme-toggle"

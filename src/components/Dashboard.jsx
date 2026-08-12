@@ -84,7 +84,7 @@ const Dashboard = () => {
             <span className="metric-label">API Status</span>
             <div className="metric-value-container">
               <span className={`pulse-dot ${isScanning ? 'warning' : 'active'}`} />
-              <span className="metric-value">{isScanning ? 'Scanning' : '99.98%'}</span>
+              <span className="metric-value">{isScanning ? 'Scanning' : `${uptime}%`}</span>
             </div>
             <span className="metric-sub">Uptime verified</span>
           </div>
